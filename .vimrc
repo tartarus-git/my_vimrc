@@ -27,7 +27,7 @@ hi Comment ctermfg=yellow
 " The if statement is like an include guard in C, it prevents redefinition if this file is run multiple times by another file.
 " autocmd means that set will run when vim finishes setting up and enters interactive mode (VimEnter) for every file-type that I try to open (*).
 if !exists("autocommands_loaded")
-	autocmd VimEnter * set formatoptions-=cro
+	autocmd VimEnter * set formatoptions-=cro	" TODO: This doesn't work super well with multiple vim panes. Figure out a new event to use so that its' better.
 	let autocommands_loaded = 1
 endif
 
@@ -38,3 +38,8 @@ for f in argv()
 		quit
 	endif
 endfor
+
+" Linux without a graphical overlay (headless, just console) doesn't support any clipboards.
+" To fix this issue, using these commands will write selection to tmp file which can be read from again so simulate copying and pasting.
+vnoremap <leader>y :w! /tmp/vimcopytemp<CR>
+nnoremap <leader>p :r! cat /tmp/vimcopytemp<CR>
