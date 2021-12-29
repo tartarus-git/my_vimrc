@@ -42,4 +42,5 @@ endfor
 " Linux without a graphical overlay (headless, just console) doesn't support any clipboards.
 " To fix this issue, using these commands will write selection to tmp file which can be read from again so simulate copying and pasting.
 vnoremap <leader>y :w! /tmp/vimcopytemp<CR>
+vnoremap <leader>d :w! /tmp/vimcopytemp<CR>gvd
 nnoremap <leader>p :r! cat /tmp/vimcopytemp<CR>
