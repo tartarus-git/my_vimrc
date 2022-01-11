@@ -43,4 +43,5 @@ for f in argv()
 	endif
 endfor
 
+" TODO: Make a unified vimrc file that changes based on platform you run it on. Also add scrolling abilities to the windows behaviour.
 
