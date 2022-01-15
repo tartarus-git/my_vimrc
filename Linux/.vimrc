@@ -25,13 +25,15 @@ hi Comment ctermfg=yellow
 
 " Prevents vim from wrapping comments and placing comment character on new line.
 " The if statement is like an include guard in C, it prevents redefinition if this file is run multiple times by another file.
-" autocmd means that set will run when vim finishes setting up and enters interactive mode (VimEnter) for every file-type that I try to open (*).
+" autocmd means that set will run when vim starts letting me interact with a buffer (BufEnter) for every file-type that I try to open (*).
+" using BufEnter instead of VimEnter means that this will happen again for every buffer, which is the desired behaviour here.
 if !exists("autocommands_loaded")
-	autocmd VimEnter * set formatoptions-=cro	" TODO: This doesn't work super well with multiple vim panes. Figure out a new event to use so that its' better.
+	autocmd BufEnter * set formatoptions-=cro
 	let autocommands_loaded = 1
 endif
 
 " Prevents accessing directories with vim, because it's annoying when it accidentally happens and who would ever even want to.
+" It's still possible if you use the ":e" command from inside vim, but that's less likely so it isn't a problem for me.
 for f in argv()
 	if isdirectory(f)
 		echomsg "vimrc: directory access disabled, cannot access " . f
