@@ -49,13 +49,16 @@ if has("win32")
 	set selectmode=""	" The above command sets a couple of things that make it more windows compatible I guess. We don't want this thing though, so we set it back here.
 
 	" Shift + Backspace and Ctrl + Backspace don't work on my Windows system because Windows for some reason sends three different key codes for normal <BS>, <BS> + Shift and
-	" <BS> + Ctrl. They're also not control characters, they're some kind of escape codes, they consist of multiple characters.
+	" <BS> + Ctrl. They're also not control characters, they're some kind of escape codes, they consist of multiple characters. Here, I've fixed the problem by remapping the
+	" two escape codes that don't work to <BS>, allowing them to work.
 	nnoremap Îy <BS>
 	nnoremap Îy <BS>
 	inoremap Îz <BS>
 	inoremap Îz <BS>
 	vnoremap Îy <BS>
 	vnoremap Îz <BS>
+	noremap ÃŽy <BS>
+	noremap ÃŽz <BS>
 
 else
 
