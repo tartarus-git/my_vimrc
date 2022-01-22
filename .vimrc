@@ -57,8 +57,6 @@ if has("win32")
 	inoremap Îz <BS>
 	vnoremap Îy <BS>
 	vnoremap Îz <BS>
-	noremap ÃŽy <BS>
-	noremap ÃŽz <BS>
 
 else
 
