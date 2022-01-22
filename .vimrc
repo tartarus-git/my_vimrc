@@ -52,11 +52,13 @@ if has("win32")
 	" <BS> + Ctrl. They're also not control characters, they're some kind of escape codes, they consist of multiple characters. Here, I've fixed the problem by remapping the
 	" two escape codes that don't work to <BS>, allowing them to work.
 	nnoremap Îy <BS>
-	nnoremap Îy <BS>
-	inoremap Îz <BS>
+	nnoremap Îz <BS>
+	inoremap Îy <BS>
 	inoremap Îz <BS>
 	vnoremap Îy <BS>
 	vnoremap Îz <BS>
+
+	" SIDE-NOTE: noremap doesn't do what you think it does. All it does is prevent recursive mapping, it doesn't prevent you from overwriting previous mappings.
 
 else
 
