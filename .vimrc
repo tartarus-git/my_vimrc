@@ -50,8 +50,12 @@ if has("win32")
 
 	" Shift + Backspace and Ctrl + Backspace don't work on my Windows system because Windows for some reason sends three different key codes for normal <BS>, <BS> + Shift and
 	" <BS> + Ctrl. They're also not control characters, they're some kind of escape codes, they consist of multiple characters.
-	noremap Îy <BS>
-	noremap Îz <BS>
+	nnoremap Îy <BS>
+	nnoremap Îy <BS>
+	inoremap Îz <BS>
+	inoremap Îz <BS>
+	vnoremap Îy <BS>
+	vnoremap Îz <BS>
 
 else
 
