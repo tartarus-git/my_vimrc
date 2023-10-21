@@ -62,9 +62,6 @@ if has("win32")
 
 else
 
-	" Changes the color of comments from dark blue to yellow. Makes them way easier to see. The colors aren't a problem on Windows for some reason.
-	hi Comment ctermfg=yellow
-
 	" Linux without a graphical overlay (headless, just console) doesn't support any clipboards.
 	" To fix this issue, using these commands will write selection to tmp file which can be read from again so simulate copying and pasting.
 	vnoremap <leader>y :w! /tmp/vimcopytemp<CR>
