@@ -38,6 +38,10 @@ for f in argv()
 	endif
 endfor
 
+" Sometimes vim is set up so that searching for stuff creates highlighted text spots that don't disappear when you close and reopen.
+" This turns that setting off.
+set nohls
+
 " Platform-specific changes:
 if has("win32")
 
@@ -64,8 +68,9 @@ else
 
 	" Linux without a graphical overlay (headless, just console) doesn't support any clipboards.
 	" To fix this issue, using these commands will write selection to tmp file which can be read from again so simulate copying and pasting.
-	vnoremap <leader>y :w! /tmp/vimcopytemp<CR>
-	vnoremap <leader>d :w! /tmp/vimcopytemp<CR>gvd
-	nnoremap <leader>p :r! cat /tmp/vimcopytemp<CR>
+	"vnoremap <leader>y :w! /tmp/vimcopytemp<CR>
+	"vnoremap <leader>d :w! /tmp/vimcopytemp<CR>gvd
+	"nnoremap <leader>p :r! cat /tmp/vimcopytemp<CR>
+	" TODO: You're not allowed to have this until you make it work in a multi-user environment.
 
 endif
